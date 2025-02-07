@@ -159,10 +159,8 @@ public class HomePage extends Base {
 		chktbtn.click();
 		Thread.sleep(6000);
 		js.executeScript("arguments[0].scrollIntoView();", nextbtn);
-		//wait.until(ExpectedConditions.elementToBeClickable(nextbtn));
 		nextbtn.click();
 		Thread.sleep(6000);
-		//js.executeScript("arguments[0].scrollIntoView();", placeorder);
 		placeorder.click();
 		Thread.sleep(5000);
 		cont.click();
@@ -174,7 +172,7 @@ public class HomePage extends Base {
 		wait.withTimeout(Duration.ofSeconds(3));
 		logout.click();
 		wait.withTimeout(Duration.ofSeconds(3));
-		driver.close();
+		driver.quit();
 
 	}
 }

@@ -13,7 +13,7 @@ public class Test extends Base {
 	public void Login() throws InterruptedException {
 		LoginPage ob = new LoginPage(driver);
 		HomePage ob2 = new HomePage(driver);
-		String file = "C:\\Users\\HP\\OneDrive\\Desktop\\MagentoReg.xlsx";
+		String file = ".\\.\\Data\\MagentoReg.xlsx";
 		String sheet = "Sheet1";
 
 		int rowcount = Utility.getRowCount(file, sheet);
