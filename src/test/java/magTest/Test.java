@@ -12,7 +12,7 @@ public class Test extends Base {
 	@org.testng.annotations.Test
 	public void Login() throws InterruptedException {
 		LoginPage ob = new LoginPage(driver);
-		HomePage ob2=new HomePage(driver);
+		HomePage ob2 = new HomePage(driver);
 		String file = "C:\\Users\\HP\\OneDrive\\Desktop\\MagentoReg.xlsx";
 		String sheet = "Sheet1";
 
@@ -26,27 +26,25 @@ public class Test extends Base {
 
 			ob.Data(email, password);
 			ob.Login();
-			
+
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
-			String expturl="https://magento.softwaretestingboard.com/";
-			String acturl=driver.getCurrentUrl();
-			
-			if(acturl.equalsIgnoreCase(expturl))
+			String expturl = "https://magento.softwaretestingboard.com/";
+			String acturl = driver.getCurrentUrl();
+
+			if (acturl.equals(expturl)) 
 			{
 				System.out.println("Login successful!");
-			}
-			else
+			} else 
 			{
 				System.out.println("Login not successful.");
 			}
 		}
 		
 		ob2.searchfunction();
-		//ob2.EditCart();
-		//ob2.OutofstockMSG();
-		//ob2.RemoveItemffromCart();
+		ob2.EditCart();
+		ob2.OutofstockMSG();
+		ob2.RemoveItemffromCart();
 		ob2.checkout();
-		
-		
+		ob2.Logout();
 	}
 }

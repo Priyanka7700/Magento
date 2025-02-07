@@ -11,8 +11,8 @@ import magBase.Base;
 public class LoginPage extends Base {
 	
 	WebDriver driver;
-	//FluentWait<WebDriver> wait;
-	@FindBy(xpath ="/html/body/div[2]/header/div[1]/div/ul/li[2]/a")
+	
+	@FindBy(xpath = "/html/body/div[2]/header/div[1]/div/ul/li[2]/a")
 	WebElement signin;
 	@FindBy(id = "email")
 	WebElement mail;
@@ -21,33 +21,24 @@ public class LoginPage extends Base {
 	@FindBy(name = "send")
 	WebElement signinbtn;
 
-
-	public LoginPage(WebDriver driver)
-	{
-		this.driver=driver;
+	public LoginPage(WebDriver driver) {
+		this.driver = driver;
 		PageFactory.initElements(driver, this);
-		
 	}
-	
-	public void SignInPage()
-	{
+
+	public void SignInPage() {
 		signin.click();
 	}
-	
-	public void Data(String email, String password)
-	{
+
+	public void Data(String email, String password) {
 		mail.clear();
 		mail.sendKeys(email);
 		pswd.clear();
 		pswd.sendKeys(password);
 	}
-	
-	public void Login()
-	{
+
+	public void Login() {
 		signinbtn.click();
-		
-		
 	}
-	
-	
+
 }
