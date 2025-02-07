@@ -17,29 +17,29 @@ public class Test extends Base {
 		String sheet = "Sheet1";
 
 		int rowcount = Utility.getRowCount(file, sheet);
-		//ob.SignInPage();
-//		for (int i = 1; i <= rowcount; i++) {
-//			String email = Utility.getCellValue(file, sheet, i, 0);
-//			System.out.println("Email : " + email);
-//			String password = Utility.getCellValue(file, sheet, i, 1);
-//			System.out.println("Password : " + password);
-//
-//			ob.Data(email, password);
-//			ob.Login();
-//			
-//			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
-//			String expturl="https://magento.softwaretestingboard.com/";
-//			String acturl=driver.getCurrentUrl();
-//			
-//			if(acturl.equalsIgnoreCase(expturl))
-//			{
-//				System.out.println("Login successful!");
-//			}
-//			else
-//			{
-//				System.out.println("Login not successful.");
-//			}
-//		}
+		ob.SignInPage();
+		for (int i = 1; i <= rowcount; i++) {
+			String email = Utility.getCellValue(file, sheet, i, 0);
+			System.out.println("Email : " + email);
+			String password = Utility.getCellValue(file, sheet, i, 1);
+			System.out.println("Password : " + password);
+
+			ob.Data(email, password);
+			ob.Login();
+			
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
+			String expturl="https://magento.softwaretestingboard.com/";
+			String acturl=driver.getCurrentUrl();
+			
+			if(acturl.equalsIgnoreCase(expturl))
+			{
+				System.out.println("Login successful!");
+			}
+			else
+			{
+				System.out.println("Login not successful.");
+			}
+		}
 		
 		ob2.searchfunction();
 		//ob2.EditCart();

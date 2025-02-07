@@ -69,8 +69,8 @@ public class HomePage extends Base {
 	@FindBy(xpath = "//*[@id=\"shipping-method-buttons-container\"]/div/button")
 	WebElement nextbtn;
 	
-	@FindBy(xpath = "//*[@id=\"error-DVGJIP6\"]/span")
-	WebElement missingfieldmsg;
+//	@FindBy(xpath = "//*[@id=\"co-shipping-method-form\"]/div[3]/span")
+//	WebElement missingfieldmsg;
 	
 	@FindBy(xpath = "//*[@id=\"checkout-payment-method-load\"]/div/div/div[2]/div[2]/div[4]/div/button/span")
 	WebElement placeorder;
@@ -97,6 +97,8 @@ public class HomePage extends Base {
 	WebElement chkcntry;
 	@FindBy(xpath = "//input[contains(@class,'input-text') and @type='text' and @name='telephone']")
 	WebElement chkmob;
+	@FindBy(xpath ="//input[contains(@class,'radio') and @type='radio' and @value='tablerate_bestway']")
+	WebElement radiobtn;
 	
 	public HomePage(WebDriver driver)
 	{
@@ -179,33 +181,33 @@ public class HomePage extends Base {
 	{
 		carticon.click();
 		chktbtn.click();
-		FluentWait<WebDriver> wait = new FluentWait<>(driver).withTimeout(Duration.ofSeconds(5)); 
-
-		 
-		wait.until(ExpectedConditions.visibilityOf(chkmail));
-		chkmail.sendKeys("testingautomation350@gmail.com");
+		FluentWait<WebDriver> wait = new FluentWait<>(driver).withTimeout(Duration.ofSeconds(5)); 		 
+		wait.until(ExpectedConditions.visibilityOf(chkfname));
+		//chkmail.sendKeys("testingautomation350@gmail.com");
 		//WebDriverWait wait1= new WebDriverWait(driver,Duration.ofSeconds(10));
 		
 //		chkfname.sendKeys("testing");
 //		chklname.sendKeys("automation");
-//		JavascriptExecutor js= (JavascriptExecutor)driver;
-//		js.executeScript("arguments[0].scrollIntoView();",chkcom);
-//		chkcom.sendKeys("ABC");
-//		chkstreet.sendKeys("Xyz Street");
-//		chkcity.sendKeys("Trivandrum");
-//		js.executeScript("arguments[0].scrollIntoView();",chkcntry);
-//		Select country=new Select(chkcntry);
-//		country.selectByValue("IN");
-//		Select state=new Select(chkstate);
-//		state.selectByValue("550");
-//		chkpin.sendKeys("123456");
-//		chkmob.sendKeys("1122334455");
-//		nextbtn.click();
-//		Thread.sleep(4000);
+		JavascriptExecutor js= (JavascriptExecutor)driver;
+		js.executeScript("arguments[0].scrollIntoView();",chkcom);
+		chkcom.sendKeys("ABC");
+		chkstreet.sendKeys("Xyz Street");
+		chkcity.sendKeys("Trivandrum");
+		js.executeScript("arguments[0].scrollIntoView();",chkcntry);
+		Select country=new Select(chkcntry);
+		country.selectByValue("IN");
+		Select state=new Select(chkstate);
+		state.selectByValue("550");
+		chkpin.sendKeys("123456");
+		chkmob.sendKeys("1122334455");
+		radiobtn.click();
+		nextbtn.click();
+		Thread.sleep(4000);
 //		String expmsg="This is a required field.";
 //		String actmsg=missingfieldmsg.getText();
 //		if(actmsg.equals(expmsg))
 //		{
+//			System.out.println(actmsg);
 //			System.out.println("Message for out of stock item displayed");
 //		}
 //		else
@@ -213,9 +215,11 @@ public class HomePage extends Base {
 //			System.out.println("Message for out of stock item is not displayed");
 //			driver.findElement(By.name("lastname")).sendKeys("automation");
 //		}
-//		nextbtn.click();
-//		driver.findElement(By.name("billing-address-same-as-shipping")).isEnabled();
-//		placeorder.click();
+		nextbtn.click();
+		wait.withTimeout(Duration.ofSeconds(5)); 	
+		driver.findElement(By.name("billing-address-same-as-shipping")).isEnabled();
+		wait.withTimeout(Duration.ofSeconds(5)); 	
+		placeorder.click();
 	}
 		
 }
